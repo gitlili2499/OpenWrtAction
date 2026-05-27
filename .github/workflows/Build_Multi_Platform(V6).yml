@@ -282,7 +282,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        include: ${{ fromJson(needs.job_init.outputs.platforms) }}
+        - source_code_platform: immortalwrt
+            platform: x86_64
+            config: X86.config
     name: Build-${{ matrix.source_code_platform }}-${{ matrix.platform }}
 
     steps:
